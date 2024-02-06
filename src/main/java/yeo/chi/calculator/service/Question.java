@@ -1,13 +1,17 @@
 package yeo.chi.calculator.service;
 
+import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 
+@Getter
 public class Question {
     private float x;
 
     private float y;
 
     private String operator;
+
+    private final String REGEX = "[0-9]+[.]?[0-9]*";
 
     public Question(String request) {
         String[] split = request.split(" ");
@@ -44,7 +48,7 @@ public class Question {
     }
 
     private void validIsNumeric(String[] split) {
-        if (!StringUtils.isNumeric(split[0]) || !StringUtils.isNumeric(split[2])) {
+        if (!split[0].matches(REGEX) || !split[2].matches(REGEX)) {
             throw new NumberFormatException();
         }
     }

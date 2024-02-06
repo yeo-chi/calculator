@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import yeo.chi.calculator.service.Question;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 
 @SpringBootTest
@@ -32,5 +33,18 @@ public class QuestionValidTest {
         String request = "+ + 45";
 
         assertThatCode(() -> new Question(request)).isInstanceOf(NumberFormatException.class);
+    }
+
+    @DisplayName("정상적인 데이터가 들어오면 에러가 발생하지 않는다.")
+    @Test
+    public void isNormalData() {
+        String request = "14 * 4.4";
+        Question question = new Question(request);
+
+        String[] split = request.split(" ");
+
+        assertThat(question.getX()).isEqualTo(Float.parseFloat(split[0]));
+        assertThat(question.getOperator()).isEqualTo(split[1]);
+        assertThat(question.getY()).isEqualTo(Float.parseFloat(split[2]));
     }
 }
