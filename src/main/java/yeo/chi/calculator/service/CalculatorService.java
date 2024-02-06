@@ -11,6 +11,15 @@ public class CalculatorService {
             case "+" -> {
                 return question.getX() + question.getY();
             }
+            case "-" -> {
+                return question.getX() - question.getY();
+            }
+            case "*" -> {
+                return question.getX() * question.getY();
+            }
+            case "/" -> {
+                return question.getX() / question.getY();
+            }
         }
 
         throw new RuntimeException();
