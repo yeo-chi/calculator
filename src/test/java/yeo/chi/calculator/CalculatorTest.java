@@ -14,7 +14,7 @@ public class CalculatorTest {
 
     @DisplayName("operator가 '+' 일 경우 값을 더한다")
     @Test
-    void add() {
+    void addition() {
         String request = "3 + 4.5";
         Question question = new Question(request);
         CalculatorService calculatorService = new CalculatorService(new Calculator());
@@ -25,7 +25,7 @@ public class CalculatorTest {
 
     @DisplayName("operator가 '-' 일 경우 값을 뺀다")
     @Test
-    void sub() {
+    void subtraction() {
         String request = "3 - 4.5";
         Question question = new Question(request);
         CalculatorService calculatorService = new CalculatorService(new Calculator());
@@ -36,7 +36,7 @@ public class CalculatorTest {
 
     @DisplayName("operator가 '*' 일 경우 값을 뺀다")
     @Test
-    void mul() {
+    void multiplication() {
         String request = "3 * 4.5";
         Question question = new Question(request);
         CalculatorService calculatorService = new CalculatorService(new Calculator());
@@ -47,7 +47,7 @@ public class CalculatorTest {
 
     @DisplayName("operator가 '/' 일 경우 값을 뺀다")
     @Test
-    void div() {
+    void division() {
         String request = "4.5 / 4.5";
         Question question = new Question(request);
         CalculatorService calculatorService = new CalculatorService(new Calculator());
