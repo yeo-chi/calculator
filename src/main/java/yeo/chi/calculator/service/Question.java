@@ -1,7 +1,6 @@
 package yeo.chi.calculator.service;
 
 import lombok.Getter;
-import org.apache.commons.lang3.StringUtils;
 
 @Getter
 public class Question {

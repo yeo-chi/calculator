@@ -29,8 +29,8 @@ public class QuestionValidTest {
 
     @DisplayName("들어온 데이터의 첫번째, 세번째가 숫자가 아니면 에러가 발생한다.")
     @Test
-    public void firstCharacterAndLastCharacterIsNumeric() {
-        String request = "+ + 45";
+    public void firstCharacterAdLastCharacterIsNumeric() {
+        String request = "/ / 8.9";
 
         assertThatCode(() -> new Question(request)).isInstanceOf(NumberFormatException.class);
     }
