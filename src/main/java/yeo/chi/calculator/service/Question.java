@@ -4,9 +4,9 @@ import lombok.Getter;
 
 @Getter
 public class Question {
-    private float x;
+    private final float x;
 
-    private float y;
+    private final float y;
 
     private String operator;
 
