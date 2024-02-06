@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import yeo.chi.calculator.service.CalculatorService;
 import yeo.chi.calculator.service.Question;
+import yeo.chi.calculator.service.strategy.Calculator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -16,7 +17,7 @@ public class CalculatorTest {
     void add() {
         String request = "3 + 4.5";
         Question question = new Question(request);
-        CalculatorService calculatorService = new CalculatorService();
+        CalculatorService calculatorService = new CalculatorService(new Calculator());
 
         float answer = calculatorService.getAnswer(question);
         assertThat(answer).isEqualTo(7.5f);
@@ -27,7 +28,7 @@ public class CalculatorTest {
     void sub() {
         String request = "3 - 4.5";
         Question question = new Question(request);
-        CalculatorService calculatorService = new CalculatorService();
+        CalculatorService calculatorService = new CalculatorService(new Calculator());
 
         float answer = calculatorService.getAnswer(question);
         assertThat(answer).isEqualTo(-1.5f);
@@ -38,7 +39,7 @@ public class CalculatorTest {
     void mul() {
         String request = "3 * 4.5";
         Question question = new Question(request);
-        CalculatorService calculatorService = new CalculatorService();
+        CalculatorService calculatorService = new CalculatorService(new Calculator());
 
         float answer = calculatorService.getAnswer(question);
         assertThat(answer).isEqualTo(13.5f);
@@ -49,7 +50,7 @@ public class CalculatorTest {
     void div() {
         String request = "4.5 / 4.5";
         Question question = new Question(request);
-        CalculatorService calculatorService = new CalculatorService();
+        CalculatorService calculatorService = new CalculatorService(new Calculator());
 
         float answer = calculatorService.getAnswer(question);
         assertThat(answer).isEqualTo(1.0f);
